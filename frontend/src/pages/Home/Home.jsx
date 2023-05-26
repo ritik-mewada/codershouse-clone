@@ -6,15 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
-  const signInLinkStyle = {
-    color: "#0077ff",
-    fontWeight: "bold",
-    textDecoration: "none",
-    marginLeft: "10px",
-  };
-
   function startRegister() {
-    navigate("/register");
+    navigate("/authenticate");
   }
 
   return (
@@ -26,13 +19,10 @@ const Home = () => {
           sure nothing breaks.
         </p>
         <div>
-          <Button text="Get your Username" onClick={startRegister} />
+          <Button text="Let's Go" onClick={startRegister} />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
-          <Link style={signInLinkStyle} to="/login">
-            SignIn
-          </Link>
         </div>
       </Card>
     </div>
