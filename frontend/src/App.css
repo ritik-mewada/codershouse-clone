@@ -1,8 +1,9 @@
 html {
-  box-sizing: border-box;
   font-size: 16px;
 }
-
+* {
+  box-sizing: border-box;
+}
 body,
 h1,
 h2,
@@ -32,6 +33,12 @@ body {
   background: #121212;
   color: #fff;
   font-family: "Nunito", sans-serif;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 .container {
   width: 1200px;
