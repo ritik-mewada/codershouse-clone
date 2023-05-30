@@ -3,7 +3,7 @@ import Card from "../../../components/shared/Card/Card";
 import TextInput from "../../../components/shared/TextInput/TextInput";
 import Button from "../../../components/shared/Button/Button";
 import { useState } from "react";
-import { varifyOtp } from "../../../http";
+import { verifyOtp } from "../../../http";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "../../../store/authSlice";
 
@@ -13,8 +13,10 @@ const StepOtp = () => {
   const dispatch = useDispatch();
 
   async function submit() {
+    if (!otp || !hash || !phone) return;
+
     try {
-      const { data } = await varifyOtp({ otp, phone, hash });
+      const { data } = await verifyOtp({ otp, phone, hash });
       dispatch(setAuth(data));
     } catch (err) {
       console.log(err);
