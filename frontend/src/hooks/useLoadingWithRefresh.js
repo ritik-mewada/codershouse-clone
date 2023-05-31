@@ -6,6 +6,7 @@ import { setAuth } from "../store/authSlice";
 export function useLoadingWithRefresh() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+
   useEffect(() => {
     (async () => {
       try {
@@ -15,7 +16,6 @@ export function useLoadingWithRefresh() {
             withCredentials: true,
           }
         );
-        console.log("getting data");
         dispatch(setAuth(data));
         setLoading(false);
       } catch (error) {
